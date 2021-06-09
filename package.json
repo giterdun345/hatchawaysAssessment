@@ -1,5 +1,6 @@
 {
   "name": "hatchaways",
+  "author": "John Ketterer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
