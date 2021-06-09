@@ -5,6 +5,19 @@ $Rale: 'Raleway'; // 300, 400, 700, 800
 $grayBorder: rgb(177, 177, 177);
 $grayText: rgb(95, 95, 95);
 
+@mixin buttonSpanFirst {
+    top: 25%;
+    bottom: 25%;
+    width: 10%;
+    left: 45%;
+}
+@mixin buttonSpanLast{
+  left: 25%;
+  right: 25%;
+  height: 10%;
+  top: 45%;
+}
+
 .App{
   font-family:$Rale;
   margin: 10px;
@@ -14,7 +27,6 @@ $grayText: rgb(95, 95, 95);
 .studentListItem{
   display: flex;
   flex-flow: row wrap;
-  // justify-content: start;
   margin: 1rem;
   
   .avatar{
@@ -58,6 +70,7 @@ $grayText: rgb(95, 95, 95);
     border: 0;
     position: absolute;
     right:0;
+    margin-top: 2rem;
   }
   
   button span {
@@ -68,17 +81,11 @@ $grayText: rgb(95, 95, 95);
   }
   
   .buttonPlus span:first-child {
-    top: 25%;
-    bottom: 25%;
-    width: 10%;
-    left: 45%;
+    @include buttonSpanFirst()
   }
   
   .buttonPlus span:last-child {
-    left: 25%;
-    right: 25%;
-    height: 10%;
-    top: 45%;
+    @include buttonSpanLast()
   }
   
   .buttonMinus span:first-child {
@@ -86,16 +93,16 @@ $grayText: rgb(95, 95, 95);
   }
   
   .buttonMinus span:last-child {
-    left: 25%;
-    right: 25%;
-    height: 10%;
-    top: 45%;
+    @include buttonSpanLast()
   }
   
   button:active{
     span{
       background: black;
     }
+  }
+  button:hover span:last-child{
+    transform: rotate(180deg)
   }
 }
 
@@ -118,5 +125,3 @@ $grayText: rgb(95, 95, 95);
     color: black;
   }
 }
-
-// EXPANDED VIEW OF STUDENT GRADES
