@@ -1,6 +1,6 @@
 const TagDisplay = ({tagArray}) => {
   return ( 
-    <ul className='tagDisplay'> 
+    <div className='tagDisplay'> 
       {tagArray.length >= 1 ? 
         tagArray.map((tag, index) => 
           <li key={tag + index}>{tag}</li>
@@ -8,7 +8,7 @@ const TagDisplay = ({tagArray}) => {
         :
         null
       }
-    </ul>
+    </div>
    );
 }
  
