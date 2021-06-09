@@ -1,3 +1,5 @@
+
+
 const StudentDetail = ({student}) => {
 
   const averageScores = (grades)=>{
@@ -8,7 +10,7 @@ const StudentDetail = ({student}) => {
         return (total / grades.length)
     }
 
-  return ( 
+  return (
     <div className='studentListItem'>
       <div className='avatar'>
         <img src= {student.pic} alt={student.firstName}/>
@@ -23,7 +25,7 @@ const StudentDetail = ({student}) => {
         </ul>
       </div>
     </div>
-   );
+  );
 }
  
 export default StudentDetail;

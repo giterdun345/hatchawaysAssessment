@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import SearchBar from './components/SearchBar'
 import Fetching from './components/Fetching'
 import StudentDetail from './components/StudentDetail'
+import EmptyQuery from './components/EmptyQuery'
 import './App.scss';
 
 const App= ()=> {
@@ -29,19 +30,30 @@ const App= ()=> {
     // returns the students matching the query from the searchbar 
     // ensures all lowercase and matches by letter or full name 
     return studentsList.filter(student=> 
-               student.firstName.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-               student.lastName.toLowerCase().indexOf(query.toLowerCase()) > -1)
+      student.firstName.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
+      student.lastName.toLowerCase().indexOf(query.toLowerCase()) > -1)
   }
+
+  const queryResults = ()=>{
+    // checks the length of the query results to display the queried students
+    // or displays "No results found"
+    let queryList = filtrate(data.students)
+    if(queryList.length > 0){
+      return queryList.map((student) => <StudentDetail student={student} key={student.id} />)
+    }else{
+      return <EmptyQuery />
+    }
+  } 
 
   return (
     <div className='App'>
       <SearchBar query={query} setQuery={setQuery} />
       {!fetching && data ? 
-        filtrate(data.students).map((student, idx) => 
-          <StudentDetail student={student} key={student.firstName + idx}/>
-        ) :
-          <Fetching currentStatus={fetching} />
+         queryResults()
+        :
+         <Fetching currentStatus={fetching} /> 
       }
+
     </div>
 
   );
