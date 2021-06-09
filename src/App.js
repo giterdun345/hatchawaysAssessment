@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Fetching from './Fetching'
 import StudentDetail from './StudentDetail'
-import './App.css';
+import './App.scss';
 
 const App= ()=> {
   const [fetching, setFetching] = useState(false)

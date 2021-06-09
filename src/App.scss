@@ -1,0 +1,50 @@
+/* Typeography  */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap');
+$Rale: 'Raleway'; // 300, 400, 700, 800
+// color pallette 
+$grayBorder: rgb(177, 177, 177);
+$grayText: rgb(140,140, 140);
+
+.studentListItem{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  margin: 1rem;
+  font-family:'Raleway';
+
+  .avatar{
+    margin: 3.5rem 1.5rem;
+  
+    img{
+      border: 1px solid $grayBorder;
+      border-radius: 50%;
+      height: 12rem;
+    } 
+  }
+
+  .studentDetail{
+    align-self: flex-start;
+    white-space: nowrap;
+
+    h1{
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 3.5rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    ul{
+      color: $grayText;
+      list-style-type: none;
+      font-size: 1.3rem;
+      padding:  0 2rem;
+      
+      li{
+        padding: 0.25rem;
+      }
+    }
+  }
+}
+
+

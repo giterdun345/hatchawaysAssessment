@@ -9,15 +9,19 @@ const StudentDetail = ({student}) => {
     }
 
   return ( 
-    <div>
-      <img src= {student.pic} alt={student.firstName}/>
-      <h1>{student.firstName}</h1>
-      <ul>
-        <li>Email: {student.email}</li>
-        <li>Company: {student.company}</li>
-        <li>Skill: {student.skill}</li>
-        <li>Average: {averageScores(student.grades)} %</li>
-      </ul>
+    <div className='studentListItem'>
+      <div className='avatar'>
+        <img src= {student.pic} alt={student.firstName}/>
+      </div>
+      <div className='studentDetail'>
+        <h1>{student.firstName} {student.lastName}</h1>
+        <ul>
+          <li>Email: {student.email}</li>
+          <li>Company: {student.company}</li>
+          <li>Skill: {student.skill}</li>
+          <li>Average: {averageScores(student.grades)} %</li>
+        </ul>
+      </div>
     </div>
    );
 }
