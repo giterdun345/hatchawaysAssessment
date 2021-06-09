@@ -5,18 +5,22 @@ $Rale: 'Raleway'; // 300, 400, 700, 800
 $grayBorder: rgb(177, 177, 177);
 $grayText: rgb(140,140, 140);
 
+.App{
+  font-family:$Rale;
+  margin: 10px;
+}
+
 .studentListItem{
   display: flex;
   flex-flow: row wrap;
-  justify-content: start;
+  // justify-content: start;
   margin: 1rem;
-  font-family:'Raleway';
-
+  
   .avatar{
     margin: 3.5rem 1.5rem;
   
     img{
-      border: 1px solid $grayBorder;
+      border: 0.5px solid $grayBorder;
       border-radius: 50%;
       height: 12rem;
     } 
@@ -48,3 +52,22 @@ $grayText: rgb(140,140, 140);
 }
 
 
+.search{
+
+  input {
+    width: 100%;
+    outline: 0;
+    border-width: 0 0 3px;
+    border-color: $grayBorder;
+    color:$grayText;
+    font-size: 2rem;
+    font-weight: 300;
+    font-family: $Rale;
+    padding: 0.75rem 0;
+
+  }
+  input:focus {
+    border-color: black;
+    color: black;
+  }
+}
