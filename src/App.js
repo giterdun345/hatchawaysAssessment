@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import SearchBar from './components/SearchBar'
-import Fetching from './components/Fetching'
+import Fetching from './components/emptyList/Fetching'
 import StudentDetail from './components/StudentDetail'
-import EmptyQuery from './components/EmptyQuery'
+import EmptyQuery from './components/emptyList/EmptyQuery'
 import './App.scss';
 
 const App= ()=> {
@@ -53,9 +53,7 @@ const App= ()=> {
         :
          <Fetching currentStatus={fetching} /> 
       }
-
     </div>
-
   );
 }
 

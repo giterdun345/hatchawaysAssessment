@@ -3,13 +3,14 @@
 $Rale: 'Raleway'; // 300, 400, 700, 800
 // color pallette 
 $grayBorder: rgb(177, 177, 177);
-$grayText: rgb(140,140, 140);
+$grayText: rgb(95, 95, 95);
 
 .App{
   font-family:$Rale;
   margin: 10px;
 }
 
+// DETAIL VIEW OF STUDENTS 
 .studentListItem{
   display: flex;
   flex-flow: row wrap;
@@ -41,7 +42,7 @@ $grayText: rgb(140,140, 140);
     ul{
       color: $grayText;
       list-style-type: none;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       padding:  0 2rem;
       
       li{
@@ -49,11 +50,57 @@ $grayText: rgb(140,140, 140);
       }
     }
   }
+
+  button {
+    background: none;
+    width: 5rem;
+    height: 5rem;
+    border: 0;
+    position: absolute;
+    right:0;
+  }
+  
+  button span {
+    position: absolute;
+    transition: 300ms;
+    background: $grayBorder;
+    border-radius: 10px;
+  }
+  
+  .buttonPlus span:first-child {
+    top: 25%;
+    bottom: 25%;
+    width: 10%;
+    left: 45%;
+  }
+  
+  .buttonPlus span:last-child {
+    left: 25%;
+    right: 25%;
+    height: 10%;
+    top: 45%;
+  }
+  
+  .buttonMinus span:first-child {
+    transform: rotate(90deg);
+  }
+  
+  .buttonMinus span:last-child {
+    left: 25%;
+    right: 25%;
+    height: 10%;
+    top: 45%;
+  }
+  
+  button:active{
+    span{
+      background: black;
+    }
+  }
 }
 
-
+// SEARCHBAR 
 .search{
-
   input {
     width: 100%;
     outline: 0;
@@ -71,3 +118,5 @@ $grayText: rgb(140,140, 140);
     color: black;
   }
 }
+
+// EXPANDED VIEW OF STUDENT GRADES

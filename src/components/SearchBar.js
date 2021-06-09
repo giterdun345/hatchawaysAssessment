@@ -2,11 +2,15 @@
 
 const SearchBar = ({query, setQuery}) => {
 
+  const handleInput= (event)=>{
+    // possible to add validation in future here 
+    setQuery(event.target.value)
+  }
   return ( 
     <form className='search'>
       <input type='text'
              placeholder='Search by name'
-             onChange={event => setQuery(event.target.value)} 
+             onChange={event => handleInput(event)} 
              value={query}
       />
     </form>
