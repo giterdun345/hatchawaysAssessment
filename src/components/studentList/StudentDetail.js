@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import ExpandedDetail from './expandedView/ExpandedDetail'
-import ExpandButton from './expandedView/ExpandButton'
+import ExpandedDetail from '../expandedView/ExpandedDetail'
+import ExpandButton from '../expandedView/ExpandButton'
+import TagInput from '../tags/TagInput'
+import TagDisplay from '../tags/TagDisplay'
 
-const StudentDetail = ({student}) => {
+const StudentDetail = ({student, tag, setTag}) => {
   const [expand, setExpand] = useState(false)
 
   const averageScores = (grades)=>{
@@ -13,11 +15,11 @@ const StudentDetail = ({student}) => {
         return (total / grades.length)
     }
   
-  const handleClick= ()=>{
-    setExpand(!expand)
-  }
+    const handleClick= ()=> {
+      setExpand(!expand)
+    }
 
-  return (
+  return ( 
     <div className='studentListItem'>
       <div className='avatar'>
         <img src= {student.pic} alt={student.firstName}/>
@@ -30,11 +32,13 @@ const StudentDetail = ({student}) => {
           <li>Skill: {student.skill}</li>
           <li>Average: {averageScores(student.grades)}%</li>
           {expand ? <ExpandedDetail grades={student.grades} id={student.id} /> : null}
+          <li className='tagDisplay'><TagDisplay tagArray={tag} /></li>
+          <li><TagInput tag={tag} setTag={setTag}/></li>
         </ul>
       </div>
       <ExpandButton handleClick={handleClick} expand={expand}/>
-    </div>
-  );
+    </div>  
+   );
 }
  
 export default StudentDetail;

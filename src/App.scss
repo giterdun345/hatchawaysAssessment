@@ -18,6 +18,17 @@ $grayText: rgb(95, 95, 95);
   top: 45%;
 }
 
+@mixin inputGeneral{
+    outline: 0;
+    border-width: 0 0 3px;
+    border-color: $grayBorder;
+    color:$grayText;
+    font-weight: 300;
+    font-family: $Rale;
+    padding: 0.75rem 0;
+    
+}
+
 .App{
   font-family:$Rale;
   margin: 10px;
@@ -109,19 +120,33 @@ $grayText: rgb(95, 95, 95);
 // SEARCHBAR 
 .search{
   input {
+    @include inputGeneral();
     width: 100%;
-    outline: 0;
-    border-width: 0 0 3px;
-    border-color: $grayBorder;
-    color:$grayText;
     font-size: 2rem;
-    font-weight: 300;
-    font-family: $Rale;
-    padding: 0.75rem 0;
+    
 
   }
   input:focus {
     border-color: black;
     color: black;
   }
+}
+
+.addTag{
+  input{
+    @include inputGeneral();
+    font-size: 1.2rem;
+  }
+
+  .showDuplicateError{
+    visibility: visible;
+    color: red;
+  }
+  
+  .hideDuplicateError{
+    visibility: hidden;
+
+
+  }
+  
 }

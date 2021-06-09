@@ -1,7 +1,7 @@
 const Fetching = () => {
   return ( 
     <div>
-      Fetching, please wait
+      <h1>Fetching, please wait</h1>
     </div>
    );
 }

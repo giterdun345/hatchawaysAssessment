@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import SearchBar from './components/SearchBar'
 import Fetching from './components/emptyList/Fetching'
-import StudentDetail from './components/StudentDetail'
+import StudentList from './components/studentList/StudentList'
 import EmptyQuery from './components/emptyList/EmptyQuery'
 import './App.scss';
 
 const App= ()=> {
   const [fetching, setFetching] = useState(false)
   const [data, setData] = useState(null)
-  const [query, setQuery] = useState('')
-
+  const [queryName, setQueryName] = useState('')
+  const [queryTag, setQueryTag] = useState('')
+  
   const fetchData = async ()=>{
     // do not need any credentials to access the URL, CORS set up
     // numbers have type of string 
@@ -28,18 +29,18 @@ const App= ()=> {
 
   const filtrate= (studentsList)=>{
     // returns the students matching the query from the searchbar 
-    // ensures all lowercase and matches by letter or full name 
+    // ensures all lowercase and matches by letter or full name
     return studentsList.filter(student=> 
-      student.firstName.toLowerCase().indexOf(query.toLowerCase()) > -1 ||
-      student.lastName.toLowerCase().indexOf(query.toLowerCase()) > -1)
+      student.firstName.toLowerCase().indexOf(queryName.toLowerCase()) > -1 ||
+      student.lastName.toLowerCase().indexOf(queryName.toLowerCase()) > -1) 
   }
 
-  const queryResults = ()=>{
+  const queryResults= ()=>{
     // checks the length of the query results to display the queried students
     // or displays "No results found"
-    let queryList = filtrate(data.students)
-    if(queryList.length > 0){
-      return queryList.map((student) => <StudentDetail student={student} key={student.id} />)
+    let queryStudentList = filtrate(data.students)
+    if(queryStudentList.length > 0){
+      return queryStudentList.map((student) => <StudentList student={student} tagQuery={queryTag} key={student.id}/>)
     }else{
       return <EmptyQuery />
     }
@@ -47,7 +48,9 @@ const App= ()=> {
 
   return (
     <div className='App'>
-      <SearchBar query={query} setQuery={setQuery} />
+      <SearchBar query={queryName} setQuery={setQueryName} type='NameSearch' />
+      <div style={{height: "2rem"}}/>
+      <SearchBar query={queryTag} setQuery={setQueryTag} type='TagSearch'/>
       {!fetching && data ? 
          queryResults()
         :
